@@ -7,5 +7,19 @@ cuentas = []
 def inicio():
     return render_template('inicio.html', cuentas=cuentas)
 
+@app.route('/add_cuenta', methods=['POST'])
+def add_account():
+    add_account_name = request.form.get('account_name')
+    
+    if account_name :
+        cuentas.append({'gift_name': account_name})
+    
+    return render_template('index.html', cuentas=cuentas)
+
+@app.route('/get_descripcion', methods=['GET'])
+def get_descripcion():  
+    gift_names = [get_descripcion['descripcion_name'] for gift in cuentas]
+    return jsonify(descripcion_names)
+
 if __name__ == '__main__':
     app.run(debug=True)
