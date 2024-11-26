@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" heref="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Inicio de sesión</h2>
+        <div class="input-group">
+            <input type="text" id="username" required placeholder="">
+            <label for="username">Ingresa tu nombre de usuario</label>
+        </div>
+        <div class="input-group">
+            <input type="password" id="password" required placeholder="">
+            <label for="password">Ingresa tu contraseña</label>
+            <i class="fas fa-eye" id="togglePassword"></i>
+        </div>
+        <button class="login-btn" onclick="validateLogin()">Acceder</button>
+        <p class="error-message" id="errorMessage">Usuario o contraseña inválida</p>
+    </div>
+
+    <script>
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordField = document.getElementById('password');
+
+        togglePassword.addEventListener('click', () => {
+            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordField.setAttribute('type', type);
+            togglePassword.classList.toggle('fa-eye-slash');
+        });
+
+        function validateLogin() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (username === 'admin' && password === 'password') {
+                window.location.href = 'content.html';
+                errorMessage.style.display = 'none';
+            } else {
+                errorMessage.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

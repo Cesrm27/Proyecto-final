@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>menu</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+
+    <header>
+
+        <div class="header-content container">
+            <div class="header-txt">
+                <h1>Organiza tu <span>evento</span> <br>favorito aqui</h1>
+                <p>
+                    Nosotros somos una organizadora de eventos, en la cual te ayudararemos a poder realizar tu evento soñado
+                    con nuestro staff de profesionales capacitados para organizar tus eventos
+                </p>
+                <div class="buttons">
+                    <a href="#" class="btn-1">Informacion</a>
+                    <a href="#" class="btn-2">Eventos</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="popular container">
+        <h2>Eventos populares</h2>
+
+        <div class="popular-content">
+            <img src="image1.png" width="275px" height="250px" alt="">
+            <img src="image2.png" width="275px" height="250px" alt="">
+            <img src="image3.png" width="275px" height="250px" alt="">
+            <img src="image4.png" width="275px" height="250px" alt="">
+            <img src="image5.png" width="275px" height="250px" alt="">
+        </div>
+    </section>
+
+    <main class="events container">
+
+        <h2>Todos los eventos</h2>
+
+        <div class="events-content">
+
+            <div class="evento-1">
+                <img src="image01.jpg" width="550px" height="250px" alt=""
+                <div class="evento-txt">
+                    <h3>Quinciañeros</h3>
+                </div>
+            </div>
+
+            <div class="evento-2">
+                <img src="image02.jpg" width="350px" height="250px" alt=""
+                <div class="evento-txt">
+                    <h3>Bodas</h3>
+                </div>
+            </div>
+
+            <div class="evento-3">
+                <img src="image03.jpg" width="350px" height="250px" alt=""
+                <div class="evento-txt">
+                    <h3>Fiesta privada</h3>
+                </div>
+            </div>
+
+            <div class="evento-4">
+                <img src="image04.jpg" width="350px" height="250px" alt=""
+                <div class="evento-txt">
+                    <h3>Fiestas infantiles</h3>
+                </div>
+            </div>
+
+            <div class="evento-5">
+                <img src="image05.jpg" width="350px" height="250px" alt=""
+                <div class="evento-txt">
+                    <h3>Aniversarios</h3>
+                </div>
+            </div>
+
+            <div class="evento-6">
+                <img src="image06.jpg" width="350px" height="250px" alt=""
+                <div class="evento-txt">
+                    <h3>Eventos empresariales</h3>
+                </div>
+            </div>
+
+            <div class="evento-7">
+                <img src="image6.png" width="350px" height="250px" alt=""
+                <div class="evento-txt">
+                    <h3>Eventos deportivos</h3>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <section class="contact container">
+
+        <div class="contact-content">
+            <h3>CONTACTANOS PARA ORGANIZAR TU EVENTO PERSONALIZADO</h3>
+            <form action="add.cuenta" method="post">
+                <label for="account_name">Añadir cuenta:</label>
+                <input name="cuenta" type="text" placeholder="Escribe tu cuenta">
+                <input name="descripcion" type="text" placeholder="Escribe la descripcion">
+                <button type="sumbit" >Enviar informacion</button>
+            </form>
+            <script>
+                function getAccountNames() {
+                    fetch('/get_account')
+                        .then(response => response.json())
+                        .then(data => {
+                            const accountNamesList = document.getElementById('account_names');
+                            accountNamesList.innerHTML = '';
+                            data.forEach(account => {
+                                const li = document.createElement('li');
+                                li.textContent = account;
+                                accountNamesList.appendChild(li);
+                            });
+                        });
+                }
+            </script>
+        </div>
+
+    </section>
+
+    <footer class="footer container">
+
+        <div class="link">
+            <a href="#" class="logo">CSG</a>
+        </div>
+
+        <div class="link">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Productos</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
